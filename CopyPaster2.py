@@ -16,7 +16,6 @@ copy_list = [
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-
 def update_gui_with_copy_id(copy_id):
     window.title("Copied ID")
     label.config(text=f"Copied ID: {copy_id}")
@@ -25,7 +24,6 @@ def update_gui_with_copy_id(copy_id):
 
 def keep_window_always_on_top():
     window.attributes('-topmost', True)
-
 
 def start_gui():
     #Starts the GUI thread
@@ -45,10 +43,8 @@ def start_gui():
     window.attributes('-topmost', True)
     window.mainloop()
 
-
 gui_thread = threading.Thread(target=start_gui, daemon=True)
 gui_thread.start()
-
 
 def regexify_copy_id(copy_id):
 #Converts Turkish characters in copy_id to dots and returns it
@@ -65,8 +61,18 @@ def read_and_copy(x, y, button, pressed):
         keep_window_always_on_top()
 
     if button.name == "left" and pressed:
-        screenshot = pyautogui.screenshot(region=(460, 110, 490, 120))
+        #This is very critical.
+        # Set the coordinates to capture a specific region of the screen.
+        # (top left corner x, top left corner y, width, height)
+        region_to_capture = (460, 110, 490, 120)
+        
+        # Capture the screen screenshot within the specified region.
+        screenshot = pyautogui.screenshot(region=region_to_capture)
 
+        # You can use this code to capture the full screen if necessary.
+        #screen_width, screen_height = pyautogui.size()
+        #screenshot = pyautogui.screenshot(region=(0, 0, screen_width, screen_height))
+        
         screenshot.save("screenshot.png")
 
         image = Image.open("screenshot.png")
@@ -78,9 +84,8 @@ def read_and_copy(x, y, button, pressed):
 
         text = pytesseract.image_to_string(enhanced_image)
 
-
         print("OCR Metni:", text)
-
+        
         for item in copy_list:
             regex_pattern = re.escape(item["copy_id"]) + r'\b(?!\w)'
 
