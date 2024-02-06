@@ -1,12 +1,33 @@
 # CopyPaster2
-This application is designed to streamline the workflow for users who often find themselves needing to copy specific information from areas on their screen where direct text selection and copying are not possible. It automates the process of identifying text within a specified screen area through Optical Character Recognition (OCR) and then matches this identified text against a predefined list of identifiers (IDs). When a match is found, the corresponding value to that ID is copied to the user's clipboard, ready to be pasted wherever needed. This automation tool is particularly useful in scenarios like document processing, data entry tasks, or when working with software that does not allow text selection.
 
-The script uses pytesseract, a Python wrapper for Google's Tesseract-OCR Engine, to recognize text from images. This requires taking a screenshot of a predetermined region on the screen, which is handled by the pyautogui library. The script is activated by a mouse click, specifically looking for left-click actions to trigger the screenshot and OCR process. This region can be adjusted to target the specific area where the desired text is located.
+Screen Text Copier
+Overview
+The Screen Text Copier is a Python-based automation tool designed to enhance productivity by streamlining the process of copying text from screen areas where direct selection is not feasible. Utilizing Optical Character Recognition (OCR) technology, this script intelligently captures, recognizes, and matches text within a predefined screen region against a list of identifiers. Upon finding a match, it copies the corresponding value to the clipboard, ready for use. This tool is invaluable for tasks involving repetitive data entry, document processing, or interaction with software that restricts text selection, effectively reducing manual effort and improving workflow efficiency.
 
-Once the text is captured and recognized, it is matched against the copy_list, a collection of dictionaries where each dictionary contains a copy_id (the identifier) and a copy_value (the corresponding value that should be copied to the clipboard). The matching process involves regular expressions (regex) to ensure precise identification, taking into account possible variations in the recognized text due to OCR inaccuracies or special characters. The script has been enhanced to handle Turkish characters by substituting them with a dot (.) in the regex pattern, broadening the script's applicability to non-English text environments.
-
-Upon finding a match, the script uses pyperclip to copy the associated value to the clipboard. It also updates a graphical user interface (GUI), built with Tkinter, to inform the user of the copied ID. This GUI is designed to be minimalistic, providing immediate, clear feedback without disrupting the user's workflow. It includes functionality to keep the window always on top, ensuring visibility.
-
-The application runs in a background thread for the GUI, allowing the main script to listen for mouse clicks without freezing the user interface. This multithreading approach ensures that the application remains responsive and that the GUI can be updated in real-time.
-
-This tool is an excellent example of leveraging Python's powerful libraries to create practical, user-friendly applications that automate repetitive tasks, enhancing efficiency and accuracy. Whether used for personal productivity hacks or integrated into professional workflows, this script demonstrates the potential of automation in everyday computing tasks.
+Features
+Automatic Text Recognition: Leverages OCR to identify text within a user-defined screen area.
+Intelligent Text Matching: Uses regular expressions to match recognized text against a predefined list of identifiers, accommodating variations and special characters.
+Clipboard Integration: Automatically copies the matched text's corresponding value to the clipboard.
+Real-time Feedback: Updates a minimalistic GUI with the copied identifier, ensuring the user is informed of the action taken.
+Customizable Identifiers: Allows for easy customization of identifiers and their corresponding values within the script.
+Dependencies
+Python: The script is written in Python, requiring Python 3.x.
+pytesseract: A Python wrapper for Google's Tesseract-OCR Engine, used for OCR capabilities.
+PyAutoGUI: Utilized for capturing screenshots of the screen region of interest.
+PIL (Python Imaging Library): Required for image processing tasks before text recognition.
+pyperclip: Allows for copying text to the system's clipboard.
+Tkinter: Provides the graphical user interface for real-time feedback.
+threading: Used to run the GUI in a background thread, keeping the application responsive.
+Installation
+Python Installation: Ensure Python 3.x is installed on your system.
+Dependency Installation: Install the required libraries using pip:
+Copy code
+pip install pytesseract pyautogui Pillow pyperclip
+Tesseract-OCR Setup: Install Tesseract-OCR and set the pytesseract.pytesseract.tesseract_cmd to the installation path.
+Running the Script: Execute the script in your Python environment. Ensure the screen region coordinates in the script match the area you intend to capture.
+Usage
+Configuration: Adjust the copy_list within the script to include the identifiers and corresponding values you wish to copy.
+Activation: The script listens for left mouse clicks. Upon clicking, it captures the predefined screen area, processes the image, and attempts to match and copy the recognized text.
+GUI Feedback: The GUI updates in real-time to display the copied identifier, providing immediate feedback without disrupting workflow.
+Contributing
+Contributions are welcome! Whether it's adding new features, improving existing ones, or reporting issues, your input helps make this tool better for everyone.
