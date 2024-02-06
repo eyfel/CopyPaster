@@ -37,7 +37,7 @@ The Screen Text Copier is a Python-based automation tool designed to enhance pro
 Contributions are welcome! Whether it's adding new features, improving existing ones, or reporting issues, your input helps make this tool better for everyone.
 
 ## License
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See <a href="https://github.com/eyfel/CopyPaster2/blob/main/LICENSE">LICENSE</a> for more information.
 
 ---
 
