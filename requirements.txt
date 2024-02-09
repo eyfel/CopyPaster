@@ -1,5 +1,6 @@
 python==3.12.1
 pyperclip==1.8.2
 pytesseract==0.3.10
+tesseract-ocr==5.3.3
 pyautogui==0.9.54
 pillow==10.2.0
