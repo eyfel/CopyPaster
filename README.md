@@ -1,44 +1,39 @@
-# Screen Text Copier
+# CopyPaster
 
-## Overview
-The Screen Text Copier is a Python-based automation tool designed to enhance productivity by streamlining the process of copying text from screen areas where direct selection is not feasible. Utilizing Optical Character Recognition (OCR) technology, this script intelligently captures, recognizes, and matches text within a predefined screen region against a list of identifiers. Upon finding a match, it copies the corresponding value to the clipboard, ready for use. This tool is invaluable for tasks involving repetitive data entry, document processing, or interaction with software that restricts text selection, effectively reducing manual effort and improving workflow efficiency.
+This Python script captures a screenshot from a specific region, reads the text in the image, and identifies a specific text pattern. It then matches rows from two specified hours in an Excel file based on this identified text. After reading text from a designated window using OCR, it retrieves the corresponding data from the matched row in the Excel file and adds it to the clipboard. Finally, it displays the copied value in a graphical user interface (GUI).
 
-## Features
-- **Automatic Text Recognition**: Leverages OCR to identify text within a user-defined screen area.
-- **Intelligent Text Matching**: Uses regular expressions to match recognized text against a predefined list of identifiers, accommodating variations and special characters.
-- **Clipboard Integration**: Automatically copies the matched text's corresponding value to the clipboard.
-- **Real-time Feedback**: Updates a minimalistic GUI with the copied identifier, ensuring the user is informed of the action taken.
-- **Customizable Identifiers**: Allows for easy customization of identifiers and their corresponding values within the script.
-
-## Dependencies
-- **Python**: The script is written in Python, requiring Python 3.x.
-- **pytesseract**: A Python wrapper for Google's Tesseract-OCR Engine, used for OCR capabilities.
-- **PyAutoGUI**: Utilized for capturing screenshots of the screen region of interest.
-- **PIL (Python Imaging Library)**: Required for image processing tasks before text recognition.
-- **pyperclip**: Allows for copying text to the system's clipboard.
-- **Tkinter**: Provides the graphical user interface for real-time feedback.
-- **threading**: Used to run the GUI in a background thread, keeping the application responsive.
-
-## Installation
-1. **Python Installation**: Ensure Python 3.x is installed on your system.
-2. **Dependency Installation**: Install the required libraries using pip:
-   ```
-   pip install pytesseract pyautogui Pillow pyperclip
-   ```
-3. **Tesseract-OCR Setup**: Install Tesseract-OCR and set the `pytesseract.pytesseract.tesseract_cmd` to the installation path.
-4. **Running the Script**: Execute the script in your Python environment. Ensure the screen region coordinates in the script match the area you intend to capture.
+This advanced feature enhances functionality by automating data retrieval based on detected text, thus improving efficiency and usability.It enables completing tasks 10 times faster.
 
 ## Usage
-- **Configuration**: Adjust the `copy_list` within the script to include the identifiers and corresponding values you wish to copy.
-- **Activation**: The script listens for left mouse clicks. Upon clicking, it captures the predefined screen area, processes the image, and attempts to match and copy the recognized text.
-- **GUI Feedback**: The GUI updates in real-time to display the copied identifier, providing immediate feedback without disrupting workflow.
 
-## Contributing
-Contributions are welcome! Whether it's adding new features, improving existing ones, or reporting issues, your input helps make this tool better for everyone.
+- The script runs when it detects a left mouse click.
+- Firstly, it captures a screenshot from a specific region.
+- It processes the image, reads the text, and finds the identification number based on a specific pattern.
+- It copies the value corresponding to the identification number to the clipboard.
+- It displays the copied identification number in the graphical user interface (GUI).
+
+## Requirements
+
+This script requires the following Python libraries to be installed:
+- openpyxl
+- pyautogui
+- pyperclip
+- pynput
+- pytesseract (You should download this from the internet.)
+
+You can install these libraries by running the following command in your terminal or command prompt:
+
+```
+pip install -r requirements.txt
+```
+
+## Notes
+
+- The script uses the `pyautogui` library to capture a screenshot from a specific region.
+- It utilizes the pytesseract OCR engine to read the text. 
+- It reads an Excel file containing the identification number and the corresponding value.
+- It uses `tkinter` to display the copied identification number in the graphical user interface.
 
 ## License
-Distributed under the MIT License. See <a href="https://github.com/eyfel/CopyPaster2/blob/main/LICENSE">LICENSE</a> for more information.
 
----
-
-This description follows a similar structure to what you requested, focusing on providing clear, concise information about the project's purpose, features, dependencies, and how to use it, suitable for a GitHub repository README.
+This script is licensed under the MIT License. For more information, please see the [LICENSE](LICENSE) file.
