@@ -1,6 +1,5 @@
-python==3.12.1
-pyperclip==1.8.2
-pytesseract==0.3.10
-tesseract-ocr==5.3.3
+openpyxl==3.1.2
 pyautogui==0.9.54
-pillow==10.2.0
+pyperclip==1.8.2
+pynput==1.7.6
+pytesseract==0.3.10
