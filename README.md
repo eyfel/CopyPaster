@@ -21,7 +21,7 @@ This script requires the following Python libraries to be installed:
 - pynput
 - pytesseract (You should download this from the internet.)
 
-You can install these libraries by running the following command in your terminal or command prompt:
+You can install these libraries(not including pytesseract) by running the following command in your terminal or command prompt:
 
 ```
 pip install -r requirements.txt
